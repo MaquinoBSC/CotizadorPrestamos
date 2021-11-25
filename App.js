@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, SafeAreaView, StyleSheet } from 'react-native';
+import color from './src/utils/colors';
 
 
 export default function App(){
@@ -22,7 +23,7 @@ export default function App(){
 
 const styles= StyleSheet.create({
   safeArea: {
-    backgroundColor: '#f00',
+    backgroundColor: color.PRIMARY_COLOR,
     height: 200,
     borderBottomLeftRadius: 30,
     borderBottomRightRadius: 30,
