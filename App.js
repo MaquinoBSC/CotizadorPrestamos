@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, SafeAreaView, StyleSheet } from 'react-native';
+import { View, Text, SafeAreaView, StyleSheet, StatusBar } from 'react-native';
+import Form from './src/components/Form';
 import color from './src/utils/colors';
 
 
@@ -7,8 +8,10 @@ export default function App(){
 
   return (
     <>
+      <StatusBar barStyle="light-content" />
       <SafeAreaView style={styles.safeArea}>
-        <Text>Formulario header</Text>
+        <Text style={styles.titleApp}>Cotizador de Prestamos</Text>
+        <Form />
       </SafeAreaView>
       <View>
         <Text>Resultado</Text>
@@ -28,5 +31,11 @@ const styles= StyleSheet.create({
     borderBottomLeftRadius: 30,
     borderBottomRightRadius: 30,
     alignItems: 'center',
+  },
+  titleApp: {
+    fontSize: 25,
+    fontWeight: 'bold',
+    color: '#fff',
+    marginTop: 15,
   }
 });
