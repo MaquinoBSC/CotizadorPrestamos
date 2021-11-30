@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, TextInput, View } from 'react-native';
+import {Picker} from '@react-native-picker/picker';
 import colors from '../utils/colors';
 
 
@@ -18,6 +19,17 @@ export default function Form(){
                     style={[styles.input, styles.inputPercentage ]}
                 />
             </View>
+            <Picker
+                style={pickerSelectStyles.inputAndroid}
+                onValueChange={(itemValue, itemIndex) =>
+                    console.log(itemValue)
+                }
+            >
+                <Picker.Item label="3 meses" value="3" />
+                <Picker.Item label="6 meses" value="6" />
+                <Picker.Item label="12 meses" value="12" />
+                <Picker.Item label="24 meses" value="24" />
+            </Picker>
         </View>
     )
 }
@@ -26,7 +38,7 @@ export default function Form(){
 const styles= StyleSheet.create({
     viewForm: {
         position: "absolute",
-        bottom: -90,
+        bottom: 0,
         width: '85%',
         paddingHorizontal: 50,
         backgroundColor: colors.PRIMARY_COLOR_DARK,
@@ -53,5 +65,32 @@ const styles= StyleSheet.create({
     inputPercentage: {
         width: '40%',
         marginLeft: 5
+    }
+});
+
+const pickerSelectStyles= StyleSheet.create({
+    inputIOS: {
+        fontSize: 16,
+        paddingVertical: 12,
+        paddingHorizontal: 10,
+        borderWidth: 1,
+        borderColor: 'grey',
+        borderRadius: 4,
+        color: 'black',
+        paddingRight: 30,
+        backgroundColor: '#fff',
+        marginLeft: -5,
+        marginRight: -5
+    },
+    inputAndroid: {
+        fontSize: 16,
+        paddingHorizontal: 10,
+        paddingVertical: 8,
+        borderWidth: 5,
+        borderColor: 'gray',
+        borderRadius: 8,
+        color: 'black',
+        paddingRight: 30,
+        backgroundColor: '#fff',
     }
 })
