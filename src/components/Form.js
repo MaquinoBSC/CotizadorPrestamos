@@ -4,7 +4,9 @@ import {Picker} from '@react-native-picker/picker';
 import colors from '../utils/colors';
 
 
-export default function Form(){
+export default function Form(props){
+    const { setCapital, setInterest, setMonths, months }= props;
+
     return (
         <View style={styles.viewForm}>
             <View style={styles.viewInputs}>
@@ -12,17 +14,20 @@ export default function Form(){
                     placeholder="Cantidad a pedir" 
                     keyboardType="numeric"
                     style={styles.input}
+                    onChangeText={(value)=> setCapital(value)}
                 />
                 <TextInput 
                     placeholder="Interes %"
                     keyboardType="numeric"
                     style={[styles.input, styles.inputPercentage ]}
+                    onChangeText={(value)=> setInterest(value)}
                 />
             </View>
             <Picker
                 style={pickerSelectStyles.inputAndroid}
+                selectedValue={months}
                 onValueChange={(itemValue, itemIndex) =>
-                    console.log(itemValue)
+                    setMonths(itemValue)
                 }
             >
                 <Picker.Item label="3 meses" value="3" />
