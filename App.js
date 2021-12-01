@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, SafeAreaView, StyleSheet, StatusBar, Button } from 'react-native';
 import Form from './src/components/Form';
+import Footer from './src/components/Footer';
 import color from './src/utils/colors';
 
 
@@ -9,7 +10,7 @@ export default function App(){
   const [interest, setInterest]= React.useState(null);
   const [months, setMonths]= React.useState(null);
 
-  const onSubmit= ()=> {
+  const calculate= ()=> {
     console.log("Capital -> ", capital);
     console.log("Interest -> ", interest);
     console.log("Months -> ", months);
@@ -26,10 +27,7 @@ export default function App(){
       <View>
         <Text>Resultado</Text>
       </View>
-      <View>
-        <Button title="Enviar" onPress={()=> onSubmit()} />
-        <Text>Footer</Text>
-      </View>
+      <Footer calculate={calculate} />
     </>
   )
 }
