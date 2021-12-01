@@ -13,7 +13,7 @@ export default function ResultsCalculation(props){
                         <Text style={styles.title}>Resumen</Text>
                         <DataResult titulo={"Cantidad solicitada"} value={`$ ${capital}`} />
                         <DataResult titulo={"Interes"} value={`${interest} %`} />
-                        <DataResult titulo={"Placos"} value={`${months} meses`} />
+                        <DataResult titulo={"Plazos"} value={`${months} meses`} />
                         <DataResult titulo={"Pago mensual"} value={`$ ${total.monthlyFee}`} />
                         <DataResult titulo={"Pago total"} value={`$ ${total.totalPayable}`} />
                     </View>

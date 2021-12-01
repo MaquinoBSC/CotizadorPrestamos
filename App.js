@@ -10,9 +10,19 @@ export default function App(){
   const [capital, setCapital]= React.useState(null);
   const [interest, setInterest]= React.useState(null);
   const [months, setMonths]= React.useState("");
-  const [total, setTotal]= React.useState({});
+  const [total, setTotal]= React.useState(null);
   const [errorMessage, setErrorMessage]= React.useState(null);
 
+
+  React.useEffect(()=> {
+    if(capital && interest && months){
+      calculate();
+    }
+    else{
+      setErrorMessage("");
+      setTotal(null);
+    }
+  }, [capital, interest, months]);
 
   const calculate= ()=> {
     setErrorMessage("");
