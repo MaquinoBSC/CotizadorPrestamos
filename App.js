@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, SafeAreaView, StyleSheet, StatusBar, Button } from 'react-native';
 import Form from './src/components/Form';
+import ResultsCalculation from './src/components/ResultsCalculation';
 import Footer from './src/components/Footer';
 import color from './src/utils/colors';
 
@@ -9,18 +10,22 @@ export default function App(){
   const [capital, setCapital]= React.useState(null);
   const [interest, setInterest]= React.useState(null);
   const [months, setMonths]= React.useState("");
-  const [total, setTotal]= React.useState(null);
+  const [total, setTotal]= React.useState({});
+  const [errorMessage, setErrorMessage]= React.useState("");
 
 
   const calculate= ()=> {
+    setErrorMessage("");
+    setTotal({});
+
     if(!capital){
-      console.log("Ingresa capital");
+      setErrorMessage("Ingresa capital");
     }
     else if(!interest){
-      console.log("Ingresa el interes");
+      setErrorMessage("Ingresa el interes");
     }
     else if(!months){
-      console.log("Seleccion un mes");
+      setErrorMessage("Seleccion un mes");
     }
     else{
       const i= interest / 100;
@@ -40,9 +45,7 @@ export default function App(){
         <Text style={styles.titleApp}>Cotizador de Prestamos</Text>
         <Form setCapital={setCapital} setInterest={setInterest} setMonths={setMonths} months={months} />
       </SafeAreaView>
-      <View>
-        <Text>Resultado</Text>
-      </View>
+      <ResultsCalculation errorMessage={errorMessage} />
       <Footer calculate={calculate} />
     </>
   )
