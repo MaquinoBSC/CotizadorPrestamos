@@ -8,12 +8,28 @@ import color from './src/utils/colors';
 export default function App(){
   const [capital, setCapital]= React.useState(null);
   const [interest, setInterest]= React.useState(null);
-  const [months, setMonths]= React.useState(null);
+  const [months, setMonths]= React.useState("");
+  const [total, setTotal]= React.useState(null);
+
 
   const calculate= ()=> {
-    console.log("Capital -> ", capital);
-    console.log("Interest -> ", interest);
-    console.log("Months -> ", months);
+    if(!capital){
+      console.log("Ingresa capital");
+    }
+    else if(!interest){
+      console.log("Ingresa el interes");
+    }
+    else if(!months){
+      console.log("Seleccion un mes");
+    }
+    else{
+      const i= interest / 100;
+      const fee= capital / ((1- Math.pow(i + 1, -months))/ i);
+      setTotal({
+        monthlyFee: fee.toFixed(2),
+        totalPayable: (fee * months).toFixed(2)
+      })
+    }
 }
 
   return (

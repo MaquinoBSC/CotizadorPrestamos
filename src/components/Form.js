@@ -30,6 +30,7 @@ export default function Form(props){
                     setMonths(itemValue)
                 }
             >
+                <Picker.Item label="Selecciona un plazo" value="" />
                 <Picker.Item label="3 meses" value="3" />
                 <Picker.Item label="6 meses" value="6" />
                 <Picker.Item label="12 meses" value="12" />
