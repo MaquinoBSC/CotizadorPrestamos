@@ -11,12 +11,12 @@ export default function App(){
   const [interest, setInterest]= React.useState(null);
   const [months, setMonths]= React.useState("");
   const [total, setTotal]= React.useState({});
-  const [errorMessage, setErrorMessage]= React.useState("");
+  const [errorMessage, setErrorMessage]= React.useState(null);
 
 
   const calculate= ()=> {
     setErrorMessage("");
-    setTotal({});
+    setTotal(null);
 
     if(!capital){
       setErrorMessage("Ingresa capital");
@@ -45,7 +45,13 @@ export default function App(){
         <Text style={styles.titleApp}>Cotizador de Prestamos</Text>
         <Form setCapital={setCapital} setInterest={setInterest} setMonths={setMonths} months={months} />
       </SafeAreaView>
-      <ResultsCalculation errorMessage={errorMessage} />
+      <ResultsCalculation 
+        errorMessage={errorMessage} 
+        capital={capital} 
+        interest={interest} 
+        months={months} 
+        total={total} 
+      />
       <Footer calculate={calculate} />
     </>
   )
